@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Hadi Çalmaya Başlayalım!</h1>
+
+    <div class="image-container">
+        <img src="drum.png" alt="Drum Kit">
+    </div>
+
+    <div class="drum-container">
+    
+        <button class="drum" data-key="65">A</button>
+        <button class="drum" data-key="83">S</button>
+        <button class="drum" data-key="68">D</button>
+        <button class="drum" data-key="70">F</button>
+        <button class="drum" data-key="71">G</button>
+        <button class="drum" data-key="72">H</button>
+        <button class="drum" data-key="74">J</button>
+        <button class="drum" data-key="75">K</button>
+        <button class="drum" data-key="76">L</button>
+    </div>
+
+<audio data-key="65" src="snare.wav"></audio>
+<audio data-key="83" src="kick.wav"></audio>
+<audio data-key="68" src="hihat.wav"></audio>
+<audio data-key="70" src="clap.wav"></audio>
+<audio data-key="71" src="tom.wav"></audio>
+<audio data-key="72" src="boom.wav"></audio>
+<audio data-key="74" src="ride.wav"></audio>
+<audio data-key="75" src="openhat.wav"></audio>
+<audio data-key="76" src="tink.wav"></audio>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
