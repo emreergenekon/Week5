@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>Kodluyoruz Javascript Saat Ödevi</title>
+
+    <style>  
+      #nameModal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      #nameModalContent {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      #content {
+        display: none;
+      }
+
+      .clock {
+        font-size: 4rem;
+        color: #e98208 !important;
+      }
+
+      .text1{
+        font-size: 3rem;
+        color: #e98208 !important;
+
+      }
+
+      .text2{
+        font-size: 2rem;
+        color: #e98208 !important;
+
+      }
+
+    </style>
+
+  </head>
+  <body class="bg-dark">
+    
+    <div id="nameModal">
+      <div id="nameModalContent">
+        <h3>Lütfen adınızı girin</h3>
+        <h6>Adınızı girerseniz güzel şeyler olacak.</h6>
+        <input type="text" id="nameInput" class="form-control" placeholder="Adınız" />
+        <button onclick="submitName()" class="btn btn-primary mt-3">Peki</button>
+      </div>
+    </div>
+
+    <div id="content" class="text-center">
+      <img
+        src="https://cdn.sanity.io/images/9kdepi1d/production/65c832d202a503b15d99e628f4313782f3ef50db-300x62.png"
+        alt=""
+        class="rounded"
+      />
+      
+      <div class="text1 text-center">
+        Merhaba, <strong><span id="myName"></span></strong>! Hoş geldin!
+      </div>
+
+      
+      <div id="myClock" class="clock mt-3"></div>
+
+  
+      <div class="text2 text-center mt-3">
+        tarihinde <strong>Kodluyoruz Frontend Web Development Patikası</strong>'nın Javascript bölümü 1. Ödevindesin.
+      </div>
+    </div>
+
+    <script src="js/clock.js"></script>
+    
+    <script>
+function submitName() {
+  const nameInput = document.getElementById("nameInput").value;
+
+  if (nameInput) {
+    
+    document.getElementById("myName").innerText = nameInput;
+
+ 
+    document.getElementById("nameModal").style.display = "none";
+
+  
+    document.getElementById("content").style.display = "block";
+
+    showTime();
+  } 
+  else {
+    alert("Lütfen adınızı girin!");
+  }
+}
+
+
+function showTime() {
+  const clockElement = document.getElementById("myClock");
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+  const timeString = `${hours}:${minutes}:${seconds}`;
+  
+  clockElement.innerText = timeString;
+
+ 
+  setTimeout(showTime, 1000);
+}
+
+
+window.onload = function() {
+  document.getElementById("content").style.display = "none";  
+};
+
+    </script>
+  </body>
+</html>
